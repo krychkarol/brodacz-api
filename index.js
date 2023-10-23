@@ -33,6 +33,14 @@ app.use("/api/carts", cartRoute);
 app.use("/api/slides", sliderRoute);
 app.use("/api/stripe", stripeRoute);
 
+app.get("/", async (req, res) => {
+    try {
+      res.status(200).json("Hey there :)");
+    } catch (err) {
+      res.status(500).json("Error :(");
+    }
+});
+
 app.listen(process.env.PORT || 5000, () => {
     console.log("Server is running");
 })
